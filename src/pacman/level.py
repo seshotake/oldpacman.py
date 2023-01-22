@@ -4,6 +4,7 @@ from entities.player import Player
 from entities.wall import Wall
 from pacman.settings import *
 from pacman.camera import YSortCameraGroup
+from pacman.ui import UI
 
 
 class Level:
@@ -15,6 +16,9 @@ class Level:
 
         # generate level
         self.generate()
+
+        # User Interface
+        self.ui = UI()
 
     # generate level
     def generate(self) -> None:
@@ -33,3 +37,4 @@ class Level:
 
     def update(self) -> None:
         self.visible_sprites.update()
+        self.ui.display(self.player)

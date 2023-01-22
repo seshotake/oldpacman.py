@@ -19,8 +19,12 @@ class Entity(pygame.sprite.Sprite):
         self.animation_speed: int = kwargs.get("animation_speed", 0)
         self.speed: int = kwargs.get("speed", 0)
         self.direction = pygame.math.Vector2(0, 0)
+        
         self.obstacle_sprites: list[Entity] = kwargs.get(
             "obstacle_sprites", None)
+
+        self.max_health: int = kwargs.get("max_health", 0)
+        self.health = kwargs.get("health", 0)
 
     def move(self, speed: int) -> None:
         if self.direction.magnitude() != 0:

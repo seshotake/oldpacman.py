@@ -5,8 +5,12 @@ from entities.entity import Entity
 
 class Player(Entity):
     def __init__(self, **kwargs) -> None:
-        kwargs["asset_path"] = "assets/player.png"
+        kwargs["asset_path"] = "assets/images/player.png"
+
         kwargs["speed"] = 5
+        kwargs["max_health"] = 3
+        kwargs["health"] = kwargs["max_health"]
+        
         super().__init__(**kwargs)
 
     def input(self) -> None:
